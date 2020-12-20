@@ -19,7 +19,7 @@ test('should memoize the identity function', t => {
 
 test('should memoize a closure', t => {
     let current = 0
-    const f = () => {
+    const f = (): number => {
         current += 1
         return current
     }
