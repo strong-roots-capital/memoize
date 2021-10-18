@@ -1,94 +1,94 @@
 {
-    "name": "@strong-roots-capital/memoize",
-    "version": "0.0.0-development",
-    "description": "Higher-order memoization function",
-    "main": "dist/src/memoize.js",
-    "types": "dist/src/memoize.d.ts",
-    "scripts": {
-        "prepublishOnly": "npm run clean && npm run build",
-        "build": "tsc --build .",
-        "clean": "rimraf --no-glob dist",
-        "lint-staged": "lint-staged",
-        "ava": "ava -v",
-        "lint": "eslint --ext ts .",
-        "lint:fix": "eslint --ext ts --fix .",
-        "prettier": "prettier --list-different package.json src/**/*.ts test/**/*.ts",
-        "prettier:fix": "prettier --write package.json src/**/*.ts test/**/*.ts",
-        "watch:lint": "nodemon -e 'ts js json' -x 'npm run lint || true'",
-        "test": "nyc ava",
-        "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
-    },
-    "lint-staged": {
-        "*.ts": [
-            "eslint --fix",
-            "prettier --write"
-        ]
-    },
-    "pre-commit": "lint-staged",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/strong-roots-capital/memoize.git"
-    },
-    "author": "Eric Crosson <eric.s.crosson@utexas.edu> (https://github.com/EricCrosson)",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/strong-roots-capital/memoize/issues"
-    },
-    "homepage": "https://github.com/strong-roots-capital/memoize",
-    "peerDependencies": {
-        "lru-fast": "^0.2.2"
-    },
-    "devDependencies": {
-        "@semantic-release/git": "^10.0.0",
-        "@types/node": "^14.14.14",
-        "@typescript-eslint/eslint-plugin": "^4.10.0",
-        "@typescript-eslint/parser": "^4.10.0",
-        "ava": "^3.14.0",
-        "ava-fast-check": "^4.0.0",
-        "codecov": "^3.8.1",
-        "eslint": "^7.16.0",
-        "eslint-plugin-ava": "^11.0.0",
-        "eslint-plugin-security": "^1.4.0",
-        "fast-check": "^2.10.0",
-        "lint-staged": "^10.5.3",
-        "nyc": "^15.1.0",
-        "pre-commit": "^1.2.2",
-        "prettier": "2.2.1",
-        "rimraf": "^3.0.2",
-        "semantic-release": "^18.0.0",
-        "ts-node": "^9.1.1",
-        "typescript": "^4.1.3"
-    },
+  "name": "@strong-roots-capital/memoize",
+  "version": "0.0.0-development",
+  "description": "Higher-order memoization function",
+  "main": "dist/src/memoize.js",
+  "types": "dist/src/memoize.d.ts",
+  "scripts": {
+    "prepublishOnly": "npm run clean && npm run build",
+    "build": "tsc --build .",
+    "clean": "rimraf --no-glob dist",
+    "lint-staged": "lint-staged",
+    "ava": "ava -v",
+    "lint": "eslint --ext ts .",
+    "lint:fix": "eslint --ext ts --fix .",
+    "prettier": "prettier --list-different package.json src/**/*.ts test/**/*.ts",
+    "prettier:fix": "prettier --write package.json src/**/*.ts test/**/*.ts",
+    "watch:lint": "nodemon -e 'ts js json' -x 'npm run lint || true'",
+    "test": "nyc ava",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "pre-commit": "lint-staged",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strong-roots-capital/memoize.git"
+  },
+  "author": "Eric Crosson <eric.s.crosson@utexas.edu> (https://github.com/EricCrosson)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strong-roots-capital/memoize/issues"
+  },
+  "homepage": "https://github.com/strong-roots-capital/memoize",
+  "peerDependencies": {
+    "lru-fast": "^0.2.2"
+  },
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.0",
+    "@types/node": "^14.14.14",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "ava": "^3.14.0",
+    "ava-fast-check": "^4.0.0",
+    "codecov": "^3.8.1",
+    "eslint": "^7.16.0",
+    "eslint-plugin-ava": "^11.0.0",
+    "eslint-plugin-security": "^1.4.0",
+    "fast-check": "^2.10.0",
+    "lint-staged": "^10.5.3",
+    "nyc": "^15.1.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "2.2.1",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^18.0.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "files": [
+    "dist/src/"
+  ],
+  "ava": {
     "files": [
-        "dist/src/"
+      "!dist/**/*.d.ts",
+      "test/**/test-*.ts"
     ],
-    "ava": {
-        "files": [
-            "!dist/**/*.d.ts",
-            "test/**/test-*.ts"
-        ],
-        "extensions": [
-            "ts"
-        ],
-        "require": [
-            "ts-node/register"
-        ]
-    },
-    "nyc": {
-        "include": [
-            "src/*.ts"
-        ],
-        "extension": [
-            ".ts"
-        ],
-        "require": [
-            "ts-node/register"
-        ]
-    },
-    "keywords": [
-        "memoize"
+    "extensions": [
+      "ts"
     ],
-    "publishConfig": {
-        "access": "public"
-    }
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "src/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "keywords": [
+    "memoize"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
