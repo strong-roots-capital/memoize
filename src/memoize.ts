@@ -1,8 +1,3 @@
-/**
- * memoize
- * Higher-order memoization function
- */
-
 import { LRUCache } from 'lru-fast'
 
 /**
