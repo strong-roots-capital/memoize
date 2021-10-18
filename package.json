@@ -1,31 +1,21 @@
 {
     "name": "@strong-roots-capital/memoize",
-    "version": "1.0.0",
+    "version": "0.0.0-development",
     "description": "Higher-order memoization function",
     "main": "dist/src/memoize.js",
     "types": "dist/src/memoize.d.ts",
     "scripts": {
-        "prepublishOnly": "npm run clean && npm run compile",
-        "compile": "tsc --build .",
-        "watch:compile": "nodemon -e 'ts json' -x 'npm run compile || true'",
+        "prepublishOnly": "npm run clean && npm run build",
+        "build": "tsc --build .",
         "clean": "rimraf --no-glob dist",
         "lint-staged": "lint-staged",
         "ava": "ava -v",
-        "ava:fail-fast": "ava -v --fail-fast",
-        "ava:serial": "ava -v -s",
-        "watch:ava": "nodemon -e 'ts json' -x 'npm run ava || true'",
-        "watch:ava:fail-fast": "nodemon -e 'ts json' -x 'npm run ava:fail-fast || true'",
-        "watch:ava:serial": "nodemon -e 'ts json' -x 'npm run ava:serial || true'",
-        "watch:ava:bell": "nodemon -e 'ts json' -x 'npm run ava || echo -e \\\\a'",
-        "watch:ava:fail-fast:bell": "nodemon -e 'ts json' -x 'npm run ava:fail-fast || echo -e \\\\a'",
-        "watch:ava:serial:bell": "nodemon -e 'ts json' -x 'npm run ava:serial || echo -e \\\\a'",
         "lint": "eslint --ext ts .",
         "lint:fix": "eslint --ext ts --fix .",
-        "prettier:check": "prettier --list-different src/**/*.ts",
-        "prettier:write": "prettier --write src/**/*.ts",
+        "prettier": "prettier --list-different package.json src/**/*.ts test/**/*.ts",
+        "prettier:fix": "prettier --write package.json src/**/*.ts test/**/*.ts",
         "watch:lint": "nodemon -e 'ts js json' -x 'npm run lint || true'",
         "test": "nyc ava",
-        "watch:test": "nodemon -e 'ts json' -x 'npm test || true'",
         "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
     },
     "lint-staged": {
@@ -45,11 +35,11 @@
         "url": "https://github.com/strong-roots-capital/memoize/issues"
     },
     "homepage": "https://github.com/strong-roots-capital/memoize",
-    "dependencies": {},
     "peerDependencies": {
         "lru-fast": "^0.2.2"
     },
     "devDependencies": {
+        "@semantic-release/git": "^10.0.0",
         "@types/node": "^14.14.14",
         "@typescript-eslint/eslint-plugin": "^4.10.0",
         "@typescript-eslint/parser": "^4.10.0",
@@ -65,6 +55,7 @@
         "pre-commit": "^1.2.2",
         "prettier": "2.2.1",
         "rimraf": "^3.0.2",
+        "semantic-release": "^18.0.0",
         "ts-node": "^9.1.1",
         "typescript": "^4.1.3"
     },
