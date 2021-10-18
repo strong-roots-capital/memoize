@@ -12,13 +12,19 @@
     "ava": "ava -v",
     "lint": "eslint --ext ts .",
     "lint:fix": "eslint --ext ts --fix .",
-    "prettier": "prettier --list-different package.json src/**/*.ts test/**/*.ts",
-    "prettier:fix": "prettier --write package.json src/**/*.ts test/**/*.ts",
+    "prettier": "prettier --list-different README.md package.json src/**/*.ts test/**/*.ts",
+    "prettier:fix": "prettier --write README.md package.json src/**/*.ts test/**/*.ts",
     "watch:lint": "nodemon -e 'ts js json' -x 'npm run lint || true'",
     "test": "nyc ava",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "lint-staged": {
+    "*.md": [
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ],
     "*.ts": [
       "eslint --fix",
       "prettier --write"
@@ -35,8 +41,8 @@
     "url": "https://github.com/strong-roots-capital/memoize/issues"
   },
   "homepage": "https://github.com/strong-roots-capital/memoize",
-  "peerDependencies": {
-    "lru-fast": "^0.2.2"
+  "dependencies": {
+    "lru_map": "0.4.1"
   },
   "devDependencies": {
     "@semantic-release/git": "^10.0.0",

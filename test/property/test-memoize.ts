@@ -13,13 +13,11 @@ testProp(
   [fc.nat()],
   (t, num) => {
     const f = constant(num)
-    const memoized = memoize(1)(f)
-    t.is(num, memoized())
+    const memoized = memoize(f)
+    t.is(memoized(), num)
   },
   {
     verbose: true,
     numRuns: 100,
   },
 )
-
-// TEST: test a function with a timeout to ensure the cache is being utilized
