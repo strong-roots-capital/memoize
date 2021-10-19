@@ -8,7 +8,7 @@ import { memoize } from '../../src/memoize'
 
 test('should memoize the identity function', (t) => {
   const id = <T>(value: T): T => value
-  const memoized = memoize(1)(id)
+  const memoized = memoize(1, id)
 
   // warm up the cache
   t.is(memoized(1), 1)
@@ -37,7 +37,7 @@ test('should memoize different values for equivalent but different object inputs
   const key2 = JSON.parse(JSON.stringify(key1))
 
   let state = 0
-  const memoized = memoize(10)(function (_key: unknown) {
+  const memoized = memoize(10, function (_key: unknown) {
     return ++state
   })
 
@@ -51,7 +51,7 @@ test('should yield the same value for the same inputs', (t) => {
   const key = [{ cat: 'horse' }, 2, 3]
 
   let state = 0
-  const memoized = memoize(10)(function (_key: unknown) {
+  const memoized = memoize(10, function (_key: unknown) {
     return ++state
   })
 
