@@ -1,26 +1,19 @@
 import { LRUMap } from 'lru_map'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Thunk = () => any
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type UnaryFunction = (arg: any) => any
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**
  * Memoize function `f`.
  */
-export function memoize<F extends Thunk>(f: F): F
+export function memoize<F extends () => any>(f: F): F
 
 /**
  * Memoize function `f`, storing at most `cacheSize` historical
  * results.
  */
-export function memoize<F extends UnaryFunction>(cacheSize: number): (f: F) => F
+export function memoize<F extends (arg: any) => any>(cacheSize: number): (f: F) => F
 
-export function memoize<F extends UnaryFunction>(
-  a: number | F,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-): F | ((f: F) => F) {
+export function memoize<F extends (arg: any) => any>(a: number | F): F | ((f: F) => F) {
   if (typeof a === 'number') {
     // cache size is defined
     const cacheSize = a
