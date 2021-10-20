@@ -12,12 +12,13 @@
     "ava": "ava -v",
     "lint": "eslint --ext ts .",
     "lint:fix": "eslint --ext ts --fix .",
-    "prettier": "prettier --list-different README.md package.json src/**/*.ts test/**/*.ts",
-    "prettier:fix": "prettier --write README.md package.json src/**/*.ts test/**/*.ts",
+    "prettier": "prettier --list-different .",
+    "prettier:fix": "prettier --write .",
     "watch:lint": "nodemon -e 'ts js json' -x 'npm run lint || true'",
     "test": "nyc ava",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
+  "prettier": "@ericcrosson/prettier-config",
   "lint-staged": {
     "*.md": [
       "prettier --write"
@@ -45,10 +46,12 @@
     "lru_map": "0.4.1"
   },
   "devDependencies": {
+    "@ericcrosson/eslint-config": "^2.1.2",
+    "@ericcrosson/prettier-config": "^1.0.0",
     "@semantic-release/git": "^10.0.0",
     "@types/node": "^14.14.14",
-    "@typescript-eslint/eslint-plugin": "^4.10.0",
-    "@typescript-eslint/parser": "^4.10.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "ava": "^3.14.0",
     "ava-fast-check": "^4.0.0",
     "codecov": "^3.8.1",

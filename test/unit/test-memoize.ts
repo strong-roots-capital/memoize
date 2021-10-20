@@ -6,6 +6,8 @@ import test from 'ava'
 
 import { memoize } from '../../src/memoize'
 
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 test('should memoize the identity function', (t) => {
   const id = <T>(value: T): T => value
   const memoized = memoize(1, id)
