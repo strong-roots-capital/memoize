@@ -2,12 +2,12 @@
 
 [![License][]](https://opensource.org/licenses/ISC)
 [![NPM Package][]](https://npmjs.org/package/@strong-roots-capital/memoize)
-[![Build status][]](https://travis-ci.org/strong-roots-capital/memoize)
+[![Build Status]](https://github.com/strong-roots-capital/memoize/actions/workflows/ci.yml)
 [![Code Coverage][]](https://codecov.io/gh/strong-roots-capital/memoize)
 
 [license]: https://img.shields.io/badge/License-ISC-blue.svg
 [npm package]: https://img.shields.io/npm/v/@strong-roots-capital/memoize.svg
-[build status]: https://travis-ci.org/strong-roots-capital/memoize.svg?branch=master
+[build status]: https://github.com/strong-roots-capital/memoize/actions/workflows/ci.yml/badge.svg
 [code coverage]: https://codecov.io/gh/strong-roots-capital/memoize/branch/master/graph/badge.svg
 
 > Higher-order memoization function
