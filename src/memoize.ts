@@ -40,7 +40,7 @@ export function memoize<F extends (arg: any) => any>(a: number | F, f?: F): F {
     // memoizing a thunk (assumed to be computationally expensive)
     let cached: ReturnType<F> | undefined = void 0
 
-    return (function (): ReturnType<F> {
+    return function (): ReturnType<F> {
       if (cached !== undefined) {
         return cached
       } else {
@@ -48,6 +48,6 @@ export function memoize<F extends (arg: any) => any>(a: number | F, f?: F): F {
         cached = value
         return value
       }
-    } as unknown) as F
+    } as unknown as F
   }
 }

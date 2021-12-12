@@ -6,7 +6,10 @@ import { testProp, fc } from 'ava-fast-check'
 
 import { memoize } from '../../src/memoize'
 
-const constant = <T>(value: T) => (): T => value
+const constant =
+  <T>(value: T) =>
+  (): T =>
+    value
 
 testProp(
   'should always yield same value for pure functions',
