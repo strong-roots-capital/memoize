@@ -53,7 +53,7 @@
     "ava": "3.15.0",
     "ava-fast-check": "4.0.2",
     "codecov": "3.8.2",
-    "eslint": "8.4.1",
+    "eslint": "8.5.0",
     "eslint-plugin-ava": "13.1.0",
     "eslint-plugin-security": "1.4.0",
     "fast-check": "2.20.0",
