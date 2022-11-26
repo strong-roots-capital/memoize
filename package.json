@@ -6,30 +6,10 @@
   "types": "dist/src/memoize.d.ts",
   "scripts": {
     "build": "tsc --build .",
-    "clean": "rimraf --no-glob dist",
-    "lint-staged": "lint-staged",
+    "clean": "rm -rf -- dist",
     "ava": "ava -v",
-    "lint": "eslint --ext ts .",
-    "lint:fix": "eslint --ext ts --fix .",
-    "prettier": "prettier --list-different .",
-    "prettier:fix": "prettier --write .",
-    "watch:lint": "nodemon -e 'ts js json' -x 'npm run lint || true'",
-    "test": "nyc ava",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "test": "nyc ava"
   },
-  "lint-staged": {
-    "*.md": [
-      "prettier --write"
-    ],
-    "*.json": [
-      "prettier --write"
-    ],
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
-  "pre-commit": "lint-staged",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/strong-roots-capital/memoize.git"
@@ -44,23 +24,11 @@
     "lru_map": "0.4.1"
   },
   "devDependencies": {
-    "@ericcrosson/eslint-config": "3.0.0",
-    "@ericcrosson/prettier-config": "1.0.0",
     "@semantic-release/git": "10.0.1",
-    "@typescript-eslint/eslint-plugin": "5.44.0",
-    "@typescript-eslint/parser": "5.44.0",
     "ava": "5.1.0",
     "ava-fast-check": "6.0.0",
-    "codecov": "3.8.2",
-    "eslint": "8.28.0",
-    "eslint-plugin-ava": "13.2.0",
-    "eslint-plugin-security": "1.5.0",
     "fast-check": "3.3.0",
-    "lint-staged": "13.0.4",
     "nyc": "15.1.0",
-    "pre-commit": "1.2.2",
-    "prettier": "2.8.0",
-    "rimraf": "3.0.2",
     "semantic-release": "19.0.5",
     "ts-node": "10.9.1",
     "typescript": "4.9.3"
