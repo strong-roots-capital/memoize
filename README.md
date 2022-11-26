@@ -1,14 +1,8 @@
 # memoize
 
-[![License][]](https://opensource.org/licenses/ISC)
-[![NPM Package][]](https://npmjs.org/package/@strong-roots-capital/memoize)
-[![Build Status]](https://github.com/strong-roots-capital/memoize/actions/workflows/ci.yml)
-[![semantic-release]](https://github.com/semantic-release/semantic-release)
+[![Build Status]](https://github.com/strong-roots-capital/memoize/actions/workflows/release.yml)
 
-[license]: https://img.shields.io/badge/License-ISC-blue.svg
-[npm package]: https://img.shields.io/npm/v/@strong-roots-capital/memoize.svg
-[build status]: https://github.com/strong-roots-capital/memoize/actions/workflows/ci.yml/badge.svg
-[semantic-release]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[build status]: https://github.com/strong-roots-capital/memoize/actions/workflows/release.yml/badge.svg?event=push
 
 > Higher-order memoization function
 
