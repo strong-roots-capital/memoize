@@ -1,27 +1,9 @@
+---
 name: CI
 
-on: [pull_request]
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+on:
+  pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [lts/-2, lts/-1, lts/*]
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: |
-          npm install --global npm
-          npm ci
-          npm run build
-          npm test
+  test:
+    uses: EricCrosson/typescript-action/.github/workflows/ci.yml@v1
