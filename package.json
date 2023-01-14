@@ -1,6 +1,6 @@
 {
   "name": "@strong-roots-capital/memoize",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Higher-order memoization function",
   "main": "dist/src/memoize.js",
   "types": "dist/src/memoize.d.ts",
