@@ -1,4 +1,5 @@
-import test from "ava";
+import test from "node:test";
+import { strict as assert } from "node:assert";
 
 /**
  * Unit under test
@@ -8,22 +9,22 @@ import { memoize } from "../../src/memoize";
 
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-test("should memoize the identity function", (t) => {
+test("should memoize the identity function", () => {
   const id = <T>(value: T): T => value;
   const memoized = memoize(1, id);
 
   // warm up the cache
-  t.is(memoized(1), 1);
+  assert.equal(memoized(1), 1);
 
   // test the cache
-  t.is(memoized(1), 1);
+  assert.equal(memoized(1), 1);
 });
 
-test("should throw when the function to memoize is undefined", (t) => {
-  t.throws(() => memoize(1, undefined as any));
+test("should throw when the function to memoize is undefined", () => {
+  assert.throws(() => memoize(1, undefined as any));
 });
 
-test("should memoize a closure", (t) => {
+test("should memoize a closure", () => {
   let current = 0;
   const f = (): number => {
     current += 1;
@@ -32,13 +33,13 @@ test("should memoize a closure", (t) => {
   const memoized = memoize(f);
 
   // warm up the cache
-  t.is(memoized(), 1);
+  assert.equal(memoized(), 1);
 
   // test the cache
-  t.is(memoized(), 1);
+  assert.equal(memoized(), 1);
 });
 
-test("should memoize different values for equivalent but different object inputs", (t) => {
+test("should memoize different values for equivalent but different object inputs", () => {
   const key1 = [{ cat: "horse" }, 2, 3];
   const key2 = JSON.parse(JSON.stringify(key1));
 
@@ -47,13 +48,13 @@ test("should memoize different values for equivalent but different object inputs
     return ++state;
   });
 
-  t.true(key1 != key2);
-  t.true(key1 !== key2);
-  t.is(memoized(key1), 1);
-  t.is(memoized(key2), 2);
+  assert.ok(key1 != key2);
+  assert.ok(key1 !== key2);
+  assert.equal(memoized(key1), 1);
+  assert.equal(memoized(key2), 2);
 });
 
-test("should yield the same value for the same inputs", (t) => {
+test("should yield the same value for the same inputs", () => {
   const key = [{ cat: "horse" }, 2, 3];
 
   let state = 0;
@@ -61,6 +62,6 @@ test("should yield the same value for the same inputs", (t) => {
     return ++state;
   });
 
-  t.is(memoized(key), 1);
-  t.is(memoized(key), 1);
+  assert.equal(memoized(key), 1);
+  assert.equal(memoized(key), 1);
 });
